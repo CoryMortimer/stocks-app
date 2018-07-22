@@ -1,0 +1,20 @@
+<button class="overflow-visible" mat-icon-button [matMenuTriggerFor]="notificationsMenu" (click)="dismissNotifications()">
+  <td-notification-count [notifications]="numberOfNotifications">
+    <mat-icon>notifications</mat-icon>
+  </td-notification-count>
+</button>
+<mat-menu #notificationsMenu="matMenu" [overlapTrigger]="false">
+  <td-menu>
+    <div td-menu-header class="mat-subheading-2 push-none">Notifications</div>
+    <mat-nav-list dense>
+      <a mat-list-item *ngFor="let notification of notifications">
+        <mat-icon matListAvatar>today</mat-icon>
+        <h4 matLine><span class="text-wrap">{{notification.message}}</span></h4>
+        <p matLine>{{notification.time}}</p>
+      </a>
+      <a mat-list-item *ngIf="!notifications || !notifications.length">
+        <h4 matLine><span class="text-wrap">No new notifications</span></h4>
+      </a>
+    </mat-nav-list>
+  </td-menu>
+</mat-menu>
