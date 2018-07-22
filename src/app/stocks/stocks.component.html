@@ -1,0 +1,15 @@
+<ngx-charts-line-chart
+  *ngIf="data"
+  [scheme]="colorScheme"
+  [view]="view"
+  [results]="data"
+  [xAxis]="showXAxis"
+  [yAxis]="showYAxis"
+  [legend]="showLegend"
+  [showXAxisLabel]="showXAxisLabel"
+  [showYAxisLabel]="showYAxisLabel"
+  [xAxisLabel]="xAxisLabel"
+  [yAxisLabel]="yAxisLabel"
+  [yScaleMin]="data[0].min"
+  [yScaleMax]="data[0].max">
+</ngx-charts-line-chart>
