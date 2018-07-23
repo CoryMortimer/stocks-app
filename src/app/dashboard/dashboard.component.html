@@ -1,0 +1,48 @@
+<td-layout-nav navigationRoute="/">
+  <button mat-icon-button td-menu-button tdLayoutToggle>
+    <mat-icon>menu</mat-icon>
+  </button>
+  <div td-toolbar-content layout="row" layout-align="center center" flex>
+    <span>Dashboard</span>
+    <span flex></span>
+    <app-notifications></app-notifications>
+  </div>
+  <div>
+    <div layout-gt-xs="row">
+      <div flex-gt-xs="33" *ngFor="let stock of stocks">
+        <mat-card>
+          <mat-card-content class="text-center">
+            <app-stock-summary
+              [stock]="stock">
+            </app-stock-summary>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <div layout-gt-xs="row">
+      <div flex-gt-sm="60" class="chart">
+        <mat-card>
+          <mat-card-title>Stocks</mat-card-title>
+          <mat-card-content>
+            <div class="chart">
+              <mat-tab-group mat-stretch-tabs (selectedIndexChange)="updateCharts()">
+                <mat-tab [label]="data[0].name" class="chart-height" *ngFor="let data of stockData">
+                  <div app-stocks [data]="data" [view]="view"></div>
+                </mat-tab>
+              </mat-tab-group>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div flex-gt-sm="40">
+        <mat-card>
+          <mat-card-title>Recent News</mat-card-title>
+          <mat-divider></mat-divider>
+          <app-articles
+            [maxArticles]="maxArticles">
+          </app-articles>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</td-layout-nav>
