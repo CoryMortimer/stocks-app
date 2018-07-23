@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StockSummaryComponent } from './stock-summary.component';
 import { StocksModule } from '../stocks.module';
+import { stocks } from '../../../testing';
 
 describe('StockSummaryComponent', () => {
   let component: StockSummaryComponent;
@@ -25,15 +26,7 @@ describe('StockSummaryComponent', () => {
   }
 
   beforeEach(async(() => {
-    stockData = {
-      name: 'Dow Jones Industrial Average',
-      symbol: 'DJI',
-      value: 25058.12,
-      isUp: false,
-      valueChange: 6.38,
-      percentChange: 0.025,
-      values: []
-    };
+    stockData = Object.assign({}, stocks.stocks[0]);
     TestBed.configureTestingModule({
       imports: [StocksModule]
     })

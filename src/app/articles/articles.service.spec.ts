@@ -2,6 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { ArticlesService } from './articles.service';
+import { articles } from '../../testing';
 
 describe('ArticlesService', () => {
   let service: ArticlesService;
@@ -9,15 +10,7 @@ describe('ArticlesService', () => {
   let testArticles;
 
   beforeEach(() => {
-    testArticles = {
-      articles: [
-        {
-          title: 'Stock market is up',
-          author: 'MSNBC',
-          content: 'content'
-        }
-      ]
-    };
+    testArticles = Object.assign({}, articles);
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [ArticlesService]

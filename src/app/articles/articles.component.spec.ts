@@ -5,6 +5,8 @@ import { ArticlesModule } from './articles.module';
 import { ArticlesComponent } from './articles.component';
 import { ArticlesService } from './articles.service';
 
+import { articles } from '../../testing';
+
 describe('ArticlesComponent', () => {
   let component: ArticlesComponent;
   let fixture: ComponentFixture<ArticlesComponent>;
@@ -22,15 +24,7 @@ describe('ArticlesComponent', () => {
   }
 
   beforeEach(async(() => {
-    testArticles = {
-      articles: [
-        {
-          title: 'Stock market is up',
-          author: 'MSNBC',
-          content: 'content'
-        }
-      ]
-    };
+    testArticles = Object.assign({}, articles);
     articlesService = jasmine.createSpyObj('ArticlesService', ['getArticles']);
     articlesService.getArticles.and.returnValue(of(testArticles));
 
@@ -53,10 +47,10 @@ describe('ArticlesComponent', () => {
     expect(component).toBeTruthy('component was not created');
   });
 
-  it('should display the single news source', () => {
+  it('should display the news sources', () => {
     fixture.detectChanges();
     const articles = getArticles();
-    expect(articles.length).toBe(1, `Articles length is not 1; it is ${articles.length}`);
+    expect(articles.length).toBe(5, `Articles length is not 5; it is ${articles.length}`);
     const {titleElement, authorElement} = getTitleAndAuthor(articles[0]);
     const {title, author} = testArticles.articles[0];
     expect(titleElement.innerText).toBe(title, `Title incorrectly is ${titleElement.innerText}`);
