@@ -7,7 +7,13 @@
 @import '~@covalent/markdown/markdown-theme';
 @import '~@covalent/highlight/highlight-theme';
 
-$primary: mat-palette($mat-orange, 800, 100, 900);
+@include mat-core();
+@include covalent-core();
+@include covalent-utilities();
+@include covalent-layout();
+@include covalent-colors();
+
+$primary: mat-palette($mat-green, 800, 100, 900);
 $accent: mat-palette($mat-light-blue, 600, 100, 900);
 
 $warn: mat-palette($mat-red, 600, 100, 900);

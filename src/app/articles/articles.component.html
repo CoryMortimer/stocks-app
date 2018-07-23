@@ -1,0 +1,9 @@
+<mat-list>
+  <ng-template let-article let-last="last" ngFor [ngForOf]="articles$ | async">
+    <mat-list-item layout-align="row">
+      <h3 matLine>{{article.title}}</h3>
+      <p matLine>{{article.author}}</p>
+    </mat-list-item>
+    <mat-divider *ngIf="!last" [inset]="true"></mat-divider>
+  </ng-template>
+</mat-list>
