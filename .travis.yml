@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+  - "9.5.0"
+
+branches:
+  only:
+    - develop
+
+before_script:
+  - npm install -g @angular/cli
+
+script:
+  - ng build --prod --aot --build-optimizer --base-href ./
+
+deploy:
+  provider: pages
+  local-dir: dist/stocks
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  on:
+    branch: master
