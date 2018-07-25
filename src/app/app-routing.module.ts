@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {path: '', loadChildren: './dashboard/dashboard.module#DashboardModule'},
+  {path: 'news-creator', loadChildren: './news-creator/news-creator.module#NewsCreatorModule'},
   {path: '**', redirectTo: ''}
 ];
 
