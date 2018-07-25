@@ -1,27 +1,48 @@
 # Stocks
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.7.
+## Overview
 
-## Development server
+The app contains 3 pages:
+* Dashboard
+* News Creator
+* News
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Dashboard
 
-## Code scaffolding
+Dashboard contains an overview of stock and news information. You can click on a news article to navigate to the article to read its content.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### News Creator
 
-## Build
+Step through the wizard to add meta data and content. You will not be able to advance to the next steps until the current step is complete. Decreasing the screen size to mobile will turn the wizard into a verital stepper.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### News
 
-## Running unit tests
+A sample page that shows reusing of the articles component. Clicking on the article will take the user to the article itself. That page demonstrates the reusability of the article component. It uses a resolver to fetch the article before navigating to the page.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Running the Application
 
-## Running end-to-end tests
+Make sure you have the [Angular CLI](https://cli.angular.io/) installed.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Using the develop branch
+* `npm install`
+* `ng serve`
 
-## Further help
+The web application will be located at [localhost:4200](http://localhost:4200).
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Network Requests
+
+The angular-in-memory-web-api package allows network calls to be simulated. All of the data can be found in the src/testing folder.
+
+## Tests
+
+A small amount of unit and component tests were written to cover some of the logic.
+
+* `ng test`
+
+## Continuous Integration and Continuous Deployment
+
+When a branch gets merged into develop, it automatically builds the production Angular app and deploys it to https://corymortimer.com/stocks-app. Because the webapp is hosted on github pages, it is not possible to type into the url bar anything besides the above url. To get to any other page, the user must click the appropriate links. There is no server side code to resolve any other url. The web application is pushed to the gh-pages branch.
+
+## Docker Containers
+
+It is possible to use containers to develop on this application. Running `make dev` from the root of the repo will launch a docker container that is bound to the current working directory.
