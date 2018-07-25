@@ -10,5 +10,9 @@ export class AppComponent {
     title: 'Dashboard',
     route: '/',
     icon: 'dashboard',
+  }, {
+    title: 'News Creator',
+    route: '/news-creator',
+    icon: 'note_add',
   }];
 }
