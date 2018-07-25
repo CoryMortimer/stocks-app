@@ -4,6 +4,6 @@
     <mat-icon *ngIf="stock.isUp" class="tc-green-500 text-30">arrow_upward</mat-icon>
     <mat-icon *ngIf="!stock.isUp" class="tc-red-500 text-30">arrow_downward</mat-icon>
   </div>
-  <span class="mat-title pad-right-xs">{{stock.value}}</span>
+  <span class="mat-title pad-right-xs">{{stock.value | number:'.2'}}</span>
   <span [ngClass]="{'tc-red-500': !stock.isUp, 'tc-green-500': stock.isUp}" class="mat-subheading-2">{{stock.isUp ? '+' : '-'}}{{stock.valueChange}} ({{stock.percentChange}}%)</span>
 </div>

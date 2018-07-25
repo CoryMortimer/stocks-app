@@ -39,7 +39,7 @@ A small amount of unit and component tests were written to cover some of the log
 
 * `ng test`
 
-## Continuous Integration and Continuous Deployment
+## Continuous Deployment
 
 When a branch gets merged into develop, it automatically builds the production Angular app and deploys it to https://corymortimer.com/stocks-app. Because the webapp is hosted on github pages, it is not possible to type into the url bar anything besides the above url. To get to any other page, the user must click the appropriate links. There is no server side code to resolve any other url. The web application is pushed to the gh-pages branch.
 
