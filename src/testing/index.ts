@@ -1,29 +1,39 @@
+const articleContent = `Lorem ipsum **dolor sit amet**, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mi bibendum neque egestas congue quisque egestas. Sagittis nisl rhoncus mattis rhoncus urna neque viverra. Integer vitae justo eget magna fermentum. Arcu risus quis varius quam. Viverra nibh cras pulvinar mattis. Ut consequat semper *viverra nam libero* justo laoreet. Donec et odio pellentesque diam volutpat commodo sed egestas egestas. Eget egestas purus viverra accumsan in nisl nisi. Orci dapibus ultrices in iaculis nunc sed. Quis vel eros donec ac. Purus ut faucibus pulvinar elementum. Risus in hendrerit gravida rutrum. Leo a diam sollicitudin tempor id. Lobortis feugiat vivamus at augue eget arcu dictum. Sodales neque sodales ut etiam sit amet nisl purus in. Sagittis nisl rhoncus mattis rhoncus urna. Est lorem ipsum dolor sit. Amet purus gravida quis blandit turpis cursus in. Euismod in pellentesque massa placerat duis ultricies.
+
+Cras fermentum *odio eu feugiat* pretium nibh ipsum consequat nisl. Risus nec feugiat in fermentum. Diam maecenas ultricies mi eget mauris pharetra et ultrices. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Et netus et malesuada fames ac turpis egestas. Duis tristique sollicitudin nibh sit amet commodo. Lorem ipsum dolor sit amet consectetur adipiscing elit ut. **Facilisi cras** fermentum odio eu feugiat pretium nibh. Id velit ut tortor pretium viverra. Sit amet nisl suscipit adipiscing bibendum est.
+
+> Convallis a cras semper auctor neque vitae tempus quam pellentesque. Nunc vel risus commodo viverra maecenas accumsan lacus vel facilisis. Pellentesque habitant morbi tristique senectus et netus et. Rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Porttitor lacus luctus accumsan tortor. Suscipit adipiscing bibendum est ultricies integer quis auctor. Vel fringilla est ullamcorper eget nulla facilisi etiam. Nisl pretium fusce id velit. In ante metus dictum at tempor commodo. Aliquet bibendum enim facilisis gravida neque.
+
+Risus commodo viverra maecenas accumsan lacus. Non blandit massa enim nec. Tincidunt augue interdum velit euismod. Auctor elit sed vulputate mi sit amet mauris. Faucibus **scelerisque** eleifend donec pretium vulputate sapien nec. Rhoncus aenean vel elit scelerisque. Mi sit amet mauris commodo quis imperdiet massa. Tortor aliquam nulla facilisi cras fermentum odio. Enim nulla aliquet **porttitor** lacus luctus accumsan tortor posuere ac. Purus in mollis nunc sed. Est velit egestas dui id ornare. Vitae justo eget magna fermentum iaculis eu non diam phasellus. Egestas purus viverra accumsan in nisl nisi scelerisque eu ultrices. Cursus vitae congue mauris rhoncus aenean vel.
+
+Rhoncus urna neque viverra justo. Volutpat sed cras ornare arcu dui. Vitae suscipit tellus mauris a. In nibh mauris cursus mattis molestie. Orci eu lobortis elementum nibh tellus molestie. Venenatis a condimentum vitae sapien pellentesque. Donec ac odio tempor orci. Tincidunt augue interdum velit euismod in pellentesque massa placerat duis. Phasellus faucibus scelerisque eleifend donec. Massa ultricies mi quis hendrerit dolor magna eget. Orci sagittis eu volutpat odio facilisis mauris sit. Scelerisque in dictum non consectetur a erat. Egestas pretium aenean pharetra magna ac placerat vestibulum lectus mauris. Sed lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt.`;
+
 export const articles = {
   articles: [
     {
       title: 'Stock market is up',
       author: 'MSNBC',
-      content: 'content'
+      content: articleContent
     },
     {
       title: 'Stock market is slightly up',
       author: 'CNN',
-      content: 'content'
+      content: articleContent
     },
     {
       title: 'Stock market is going up',
       author: 'Bill Fritz',
-      content: 'content'
+      content: articleContent
     },
     {
       title: 'Stock market might be going down',
       author: 'NBC',
-      content: 'content'
+      content: articleContent
     },
     {
       title: 'Stock market is fine',
       author: 'Robert Drake',
-      content: 'content'
+      content: articleContent
     },
   ]
 };

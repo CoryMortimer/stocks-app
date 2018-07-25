@@ -1,0 +1,13 @@
+<td-layout-nav navigationRoute="/">
+  <button mat-icon-button td-menu-button tdLayoutToggle>
+    <mat-icon>menu</mat-icon>
+  </button>
+  <div td-toolbar-content>
+    <span>News Creator</span>
+  </div>
+  <app-article
+    [title]="article.title"
+    [author]="article.author"
+    [content]="article.content">
+  </app-article>
+</td-layout-nav>

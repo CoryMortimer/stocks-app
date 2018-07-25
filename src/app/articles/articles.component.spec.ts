@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
 import { of } from 'rxjs/observable/of';
 
 import { ArticlesModule } from './articles.module';
@@ -28,10 +29,13 @@ describe('ArticlesComponent', () => {
     articlesService = jasmine.createSpyObj('ArticlesService', ['getArticles']);
     articlesService.getArticles.and.returnValue(of(testArticles));
 
+    const routerSpy = jasmine.createSpyObj('Router', ['navigate']);
+
     TestBed.configureTestingModule({
       imports: [ArticlesModule],
       providers: [
-        {provide: ArticlesService, useValue: articlesService}
+        {provide: ArticlesService, useValue: articlesService},
+        {provide: Router, userValue: routerSpy}
       ]
     })
     .compileComponents();
