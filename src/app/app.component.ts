@@ -14,5 +14,9 @@ export class AppComponent {
     title: 'News Creator',
     route: '/news-creator',
     icon: 'note_add',
+  }, {
+    title: 'News',
+    route: '/news',
+    icon: 'trending_up',
   }];
 }
