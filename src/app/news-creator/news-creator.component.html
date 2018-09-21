@@ -5,44 +5,64 @@
   <div td-toolbar-content>
     <span>News Creator</span>
   </div>
-  <td-steps [mode]="stepsMode" *ngIf="!submitted">
-    <td-step #metaDataStep label="Enter title and author" [active]="activeStep === 'metaData'" (activated)="toStep('metaData')" [state]="getStateFromForm(metaDataForm)">
-      <td-dynamic-forms #metaDataForm [elements]="metaDataElements">
-        <ng-template let-element ngFor [ngForOf]="metaDataElements">
-          <ng-template let-control="control" [tdDynamicFormsError]="element.name">
-          </ng-template>
-        </ng-template>
-      </td-dynamic-forms>
-      <ng-template td-step-actions>
-        <button mat-raised-button color="primary" class="text-upper" (click)="toStep('content')" [disabled]="!metaDataForm.valid">Next</button>
-      </ng-template>
-    </td-step>
-    <td-step label="Enter content" [active]="activeStep === 'content'" (activated)="toStep('content')" [disabled]="!metaDataForm.valid" [state]="getStateFromEditor(textEditor)">
-      <td-text-editor [options]="contentOptions" #textEditor></td-text-editor>
-      <ng-template td-step-actions>
-        <button mat-button class="text-upper" (click)="toStep('metaData')">Previous</button>
-        <button mat-raised-button color="primary" class="text-upper" (click)="toStep('preview')" [disabled]="!textEditor.simpleMDE || !textEditor.simpleMDE.value()">Next</button>
-      </ng-template>
-    </td-step>
-    <td-step label="Preview and Finish" [active]="activeStep === 'preview'" (activated)="toStep('preview')" [disabled]="!textEditor.simpleMDE || !textEditor.simpleMDE.value()">
-      <div class="centered-readable-content">
-        <app-article
-          *ngIf="activeStep === 'preview'"
-          [title]="metaDataForm.value.Title"
-          [author]="metaDataForm.value.Author"
-          [content]="textEditor.simpleMDE.value()">
-        </app-article>
-      </div>
-      <ng-template td-step-summary>
-        Use an optional step summary to summarize the info in this step
-      </ng-template>
-      <ng-template td-step-actions>
-        <button mat-button class="text-upper" (click)="toStep('content')">Previous</button>
-        <button mat-raised-button color="primary" class="text-upper" (click)="submitArticle()">Finish</button>
-      </ng-template>
-    </td-step>
-  </td-steps>
-  <div *ngIf="submitted" class="mat-headline centered-readable-content">
-    Thank you for submitting your article.
-  </div>
+  <td-layout-card-over @appear [cardTitle]="cardOverTitle" [cardSubtitle]="cardOverSubtitle">
+    <ng-template tdLoading="loadingOverlay" tdLoadingMode="indeterminate" tdLoadingType="circle" tdLoadingStrategy="overlay" tdLoadingColor="accent">
+      <mat-card-content *ngIf="!submitted">
+        <td-steps mode="vertical" *ngIf="!submitted">
+          <td-step #metaDataStep label="Enter title and author" [active]="activeStep === 'metaData'" (activated)="toStep('metaData')" [state]="formState" (deactivated)="formState = getStateFromForm(metaDataForm)">
+            <td-dynamic-forms #metaDataForm [elements]="metaDataElements">
+              <ng-template let-element ngFor [ngForOf]="metaDataElements">
+                <ng-template let-control="control" [tdDynamicFormsError]="element.name">
+                </ng-template>
+              </ng-template>
+            </td-dynamic-forms>
+            <ng-template td-step-actions>
+              <button mat-button color="primary" class="text-upper" (click)="toStep('content'); formState = 'complete'" [disabled]="!metaDataForm.valid">Continue</button>
+              <button mat-button class="text-upper" (click)="clearForm()">Cancel</button>
+            </ng-template>
+            <ng-template td-step-summary>
+              <div>Title: {{metaDataForm.value.Title}}</div>
+              <div>Author: {{metaDataForm.value.Author}}</div>
+            </ng-template>
+          </td-step>
+          <td-step label="Enter content" [active]="activeStep === 'content'" (activated)="toStep('content')" [disabled]="!metaDataForm.valid" [state]="contentState" (deactivated)="contentState = getStateFromEditor(textEditor)">
+            <td-text-editor [options]="contentOptions" #textEditor></td-text-editor>
+            <ng-template td-step-actions>
+              <button mat-button color="primary" class="text-upper" (click)="toStep('preview'); contentState = 'complete'" [disabled]="!textEditor.simpleMDE || !textEditor.simpleMDE.value()">Continue</button>
+              <button mat-button class="text-upper" (click)="clearEditor()">Cancel</button>
+            </ng-template>
+            <ng-template td-step-summary>
+              <app-article
+                *ngIf="!!textEditor && !!textEditor.simpleMDE && !!textEditor.simpleMDE.value()"
+                [content]="textEditor.simpleMDE.value()">
+              </app-article>
+            </ng-template>
+          </td-step>
+          <td-step label="Preview and Finish" [active]="activeStep === 'preview'" (activated)="toStep('preview')" [disabled]="!textEditor.simpleMDE || !textEditor.simpleMDE.value()">
+            <div class="centered-readable-content">
+              <app-article
+                *ngIf="activeStep === 'preview'"
+                [title]="metaDataForm.value.Title"
+                [author]="metaDataForm.value.Author"
+                [content]="textEditor.simpleMDE.value()">
+              </app-article>
+            </div>
+            <ng-template td-step-summary>
+              Use an optional step summary to summarize the info in this step
+            </ng-template>
+            <!-- <ng-template td-step-actions>
+              <button mat-button class="text-upper" (click)="toStep('content')">Previous</button>
+              <button mat-button color="primary" class="text-upper" (click)="submitArticle()">Finish</button>
+            </ng-template> -->
+          </td-step>
+        </td-steps>
+        <mat-divider matDivider></mat-divider>
+        <button mat-raised-button color="primary" class="text-upper push-top" (click)="submitArticle()">Save</button>
+        <button mat-button class="text-upper" (click)="clearAll()">Cancel</button>
+      </mat-card-content>
+    </ng-template>
+    <mat-card-content *ngIf="submitted">
+      Your article is currently being reviewed and processed. You should see your article appear within 24 hours. Thank you for your submission.
+    </mat-card-content>
+  </td-layout-card-over>
 </td-layout-nav>

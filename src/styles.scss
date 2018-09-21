@@ -2,6 +2,7 @@
 
 @import '~@angular/material/theming';
 @import '~@covalent/core/theming/all-theme';
+@import './constants.scss';
 
 // (optional) Additional themes
 @import '~@covalent/markdown/markdown-theme';
@@ -12,13 +13,6 @@
 @include covalent-utilities();
 @include covalent-layout();
 @include covalent-colors();
-
-$primary: mat-palette($mat-green, 800, 100, 900);
-$accent: mat-palette($mat-light-blue, 600, 100, 900);
-
-$warn: mat-palette($mat-red, 600, 100, 900);
-
-$theme: mat-light-theme($primary, $accent, $warn);
 
 @include angular-material-theme($theme);
 @include covalent-theme($theme);

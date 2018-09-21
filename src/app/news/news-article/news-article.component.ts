@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+
+import { appear } from '../../animations';
 
 @Component({
   selector: 'app-news-article',
   templateUrl: './news-article.component.html',
-  styleUrls: ['./news-article.component.scss']
+  styleUrls: ['./news-article.component.scss'],
+  animations: appear
 })
 export class NewsArticleComponent implements OnInit {
   article;

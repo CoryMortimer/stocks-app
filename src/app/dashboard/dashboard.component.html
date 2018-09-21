@@ -7,21 +7,25 @@
     <span flex></span>
     <app-notifications></app-notifications>
   </div>
-  <div>
-    <div layout-gt-xs="row">
-      <div flex-gt-xs="33" *ngFor="let stock of stocks">
-        <mat-card>
-          <mat-card-content class="text-center">
-            <app-stock-summary
-              [stock]="stock">
-            </app-stock-summary>
-          </mat-card-content>
+  <ng-template tdLoading="loadingOverlay" tdLoadingMode="indeterminate" tdLoadingType="circle" tdLoadingStrategy="replace" tdLoadingColor="accent">
+  <div *ngIf="stocks">
+    <div layout-gt-xs="row" class="flex-wrap-center">
+      <div flex-gt-sm="33" *ngFor="let stock of stocks">
+        <mat-card @appear>
+          <mat-card-title-group>
+            <mat-card-title class="text-xxl">{{stock.symbol}}</mat-card-title>
+            <mat-card-subtitle>
+              <span class="mat-title pad-right-xs">{{stock.value | number:'.2'}}</span>
+              <span [ngClass]="{'tc-red-500': !stock.isUp, 'tc-green-500': stock.isUp}" class="mat-subheading-2">{{stock.isUp ? '+' : '-'}}{{stock.valueChange}} ({{stock.percentChange}}%)</span>
+            </mat-card-subtitle>
+            <img mat-card-md-image [src]=stock.image>
+          </mat-card-title-group>
         </mat-card>
       </div>
     </div>
     <div layout-gt-xs="row">
-      <div flex-gt-sm="60" class="chart">
-        <mat-card>
+      <div flex-gt-xs="60" class="chart">
+        <mat-card @appear>
           <mat-card-title>Stocks</mat-card-title>
           <mat-card-content>
             <div class="chart">
@@ -34,15 +38,19 @@
           </mat-card-content>
         </mat-card>
       </div>
-      <div flex-gt-sm="40">
-        <mat-card>
+      <div flex-gt-xs="40">
+        <mat-card @appear>
           <mat-card-title>Recent News</mat-card-title>
           <mat-divider></mat-divider>
           <app-articles
             [maxArticles]="maxArticles">
           </app-articles>
+          <mat-card-actions>
+            <button routerLink="/news" mat-button class="text-upper">View more</button>
+          </mat-card-actions>
         </mat-card>
       </div>
     </div>
   </div>
+</ng-template>
 </td-layout-nav>

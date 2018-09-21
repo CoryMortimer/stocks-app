@@ -3,12 +3,14 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators/map';
 
+import { appear } from '../animations';
 import { ArticlesService } from './articles.service';
 
 @Component({
   selector: 'app-articles',
   templateUrl: './articles.component.html',
-  styleUrls: ['./articles.component.scss']
+  styleUrls: ['./articles.component.scss'],
+  animations: appear
 })
 export class ArticlesComponent implements OnInit {
   @Input() maxArticles?: number;

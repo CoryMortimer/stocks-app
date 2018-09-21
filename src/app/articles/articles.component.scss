@@ -1,3 +1,9 @@
+@import '../../constants.scss';
+
 mat-list-item {
   cursor: pointer;
+}
+
+p.accent {
+  color: mat-color($accent);
 }

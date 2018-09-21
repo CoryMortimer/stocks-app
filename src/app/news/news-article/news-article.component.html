@@ -5,9 +5,11 @@
   <div td-toolbar-content>
     <span>News</span>
   </div>
-  <app-article
-    [title]="article.title"
-    [author]="article.author"
-    [content]="article.content">
-  </app-article>
+  <td-layout-card-over @appear [cardTitle]="article.title" [cardSubtitle]="article.author">
+    <mat-card-content>
+      <app-article
+        [content]="article.content">
+      </app-article>
+    </mat-card-content>
+  </td-layout-card-over>
 </td-layout-nav>
