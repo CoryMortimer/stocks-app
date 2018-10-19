@@ -4,6 +4,7 @@ import { CovalentLayoutModule } from '@covalent/core/layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
 
 import { NewsRoutingModule } from './news-routing.module';
 import { NewsComponent } from './news.component';
@@ -17,6 +18,7 @@ import { NewsArticleComponent } from './news-article/news-article.component';
     MatButtonModule,
     MatIconModule,
     MatCardModule,
+    MatDividerModule,
     ArticlesModule,
     NewsRoutingModule
   ],
