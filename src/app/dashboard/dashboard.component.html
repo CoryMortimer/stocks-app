@@ -18,7 +18,7 @@
               <span class="mat-title pad-right-xs">{{stock.value | number:'.2'}}</span>
               <span [ngClass]="{'tc-red-500': !stock.isUp, 'tc-green-500': stock.isUp}" class="mat-subheading-2">{{stock.isUp ? '+' : '-'}}{{stock.valueChange}} ({{stock.percentChange}}%)</span>
             </mat-card-subtitle>
-            <img mat-card-md-image [src]=stock.image>
+            <img class="pad" mat-card-md-image [src]=stock.image>
           </mat-card-title-group>
         </mat-card>
       </div>
@@ -45,6 +45,7 @@
           <app-articles
             [maxArticles]="maxArticles">
           </app-articles>
+          <mat-divider></mat-divider>
           <mat-card-actions>
             <button routerLink="/news" mat-button class="text-upper">View more</button>
           </mat-card-actions>
