@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CovalentLayoutModule } from '@covalent/core/layout';
+import { CovalentLoadingModule } from '@covalent/core/loading';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
@@ -17,6 +18,7 @@ import { NotificationsModule } from '../notifications/notifications.module';
   imports: [
     CommonModule,
     CovalentLayoutModule,
+    CovalentLoadingModule,
     MatIconModule,
     MatCardModule,
     MatDividerModule,

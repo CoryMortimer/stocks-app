@@ -42,6 +42,7 @@ export const stocks = {
   stocks: [
     {
       name: 'Dow Jones Industrial Average',
+      image: 'https://upload.wikimedia.org/wikipedia/en/thumb/f/f8/Dow_Jones_Logo.svg/1200px-Dow_Jones_Logo.svg.png',
       symbol: 'DJI',
       value: 25058.12,
       isUp: false,
@@ -84,6 +85,7 @@ export const stocks = {
     },
     {
       name: 'Nasdaq Composite',
+      image: 'https://botw-pd.s3.amazonaws.com/styles/logo-thumbnail/s3/062016/untitled-1_79.png?itok=j9w8nuim',
       symbol: 'IXIC',
       value: 7820.20,
       isUp: false,
@@ -126,6 +128,7 @@ export const stocks = {
     },
     {
       name: 'S&P 500 Index',
+      image: 'https://i.pinimg.com/originals/3c/57/82/3c5782eaf1d40d8fcfd56a96b065392b.jpg',
       symbol: 'INX',
       value: 2801.83,
       isUp: false,

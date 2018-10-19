@@ -5,5 +5,11 @@
   <div td-toolbar-content>
     <span>News</span>
   </div>
-  <app-articles></app-articles>
+  <td-layout-card-over @appear cardTitle="News">
+    <mat-card-content>
+      <app-articles></app-articles>
+      <mat-divider matDivider></mat-divider>
+      <button mat-button routerLink="/news-creator" color="primary" class="text-upper push-top">Create</button>
+    </mat-card-content>
+  </td-layout-card-over>
 </td-layout-nav>
